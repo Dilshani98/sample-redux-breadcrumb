@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Tenants from './pages/tenants';
+import Projects from './pages/projects';
+import Stepdomains from './pages/stepDomains';
+import {BrowserRouter as Router,Routes,Route,Navigate} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/tenants" element={<Tenants/>}></Route>
+          <Route path="/projects/:tenantid" element={<Projects/>}></Route>
+          <Route path="/stepdomain/:tenantid/:projectid" element={<Stepdomains/>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
