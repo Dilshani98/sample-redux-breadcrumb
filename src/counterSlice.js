@@ -5,8 +5,8 @@ const initialState = {
 }
 
 export const counterSlice = createSlice({
-  name: 'breadCrumb',
-  initialState: {value: [{id:0,name:"Home",path:'/home'}]},
+  name: 'counter',
+  initialState,
   reducers: {
     addElement: (state,action) => {
         state.value.push(action.payload);

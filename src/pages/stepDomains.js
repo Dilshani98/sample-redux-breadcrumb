@@ -1,12 +1,13 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate ,useParams} from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Stepdomains() {
     const navigate = useNavigate();
     const{ tenantid,projectid} = useParams();
-   
+
+    const bredcrumbArray = useSelector((state) => state.counter.value);
     
       const  function1=()=>{
         console.log("params",tenantid,projectid)

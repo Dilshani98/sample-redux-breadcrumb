@@ -8,7 +8,7 @@ export default function Tenants() {
   const navigate = useNavigate();
 
   // const count = useSelector((state) => state.counter.value);
-  const arrayB = useSelector((state) => state.breadCrumb.value);
+  const arrayB = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   const tenantId = 1;

@@ -9,11 +9,14 @@ export default function Projects() {
 
   const projectid = 1;
 
-  const count = useSelector((state) => state.counter.value);
-  const bredcrumbArray = useSelector((state) => state.breadCrumb.value);
+  // const count = useSelector((state) => state.counter.value);
+  const bredcrumbArray = useSelector((state) => state.counter.value);
+  
   const navigateToStepDomain = () => {
     navigate(`/stepdomain/${tenantid}/${projectid}`);
   };
+
+  console.log("array",bredcrumbArray)
 
   return (
     <div>
@@ -50,7 +53,7 @@ export default function Projects() {
         >
           View Step domains
         </Button>
-        {count}
+      
       </div>
     </div>
   );
