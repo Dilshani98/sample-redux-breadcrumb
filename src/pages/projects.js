@@ -2,19 +2,33 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import {addElement} from "../counterSlice";
 
 export default function Projects() {
+
   const navigate = useNavigate();
   const { tenantid } = useParams();
-
+  const dispatch = useDispatch();
   const projectid = 1;
 
-  // const count = useSelector((state) => state.counter.value);
   const bredcrumbArray = useSelector((state) => state.counter.value);
-  
+
   const navigateToStepDomain = () => {
     navigate(`/stepdomain/${tenantid}/${projectid}`);
+    dispatch(addElement({id:bredcrumbArray[bredcrumbArray.length-1].id+1,name:"Projects",path:`/projects/${tenantid}`})) 
   };
+
+  const breadcrumbNavigate =(e,item)=>{
+   
+    if(item.name === "Project"){
+      e.preventDefault();
+      navigate(`/projects/${tenantid}`);
+    }
+    if(item.name === "Tenants"){
+
+      navigate(`/tenants`);
+    }
+  }
 
   console.log("array",bredcrumbArray)
 
@@ -28,7 +42,7 @@ export default function Projects() {
               return (
                 <>
                   <li class="breadcrumb-item">
-                    <a href="#">{item.name}</a>
+                    <a href="" onClick={(e)=>breadcrumbNavigate(e,item)}>{item.name}</a>
                   </li>
                   {/* <li class="breadcrumb-item">
                     <a href="#">Library</a>

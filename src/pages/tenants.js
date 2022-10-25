@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {  increment ,addElement} from "../counterSlice";
 
 export default function Tenants() {
+
+  
   const navigate = useNavigate();
 
   // const count = useSelector((state) => state.counter.value);
@@ -15,7 +17,7 @@ export default function Tenants() {
 
   const navigateToProjects = () => {
     navigate(`/projects/${tenantId}`);
-    dispatch(addElement({id:arrayB[arrayB.length-1].id+1,name:"Tenants",path:'/tenants'})) 
+    dispatch(addElement({id:arrayB[arrayB.length-1].id+1,name:"Tenants",path:`/tenants`}))  
   };
 
 console.log("array",arrayB)
